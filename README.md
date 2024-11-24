@@ -1,96 +1,94 @@
+# K-Nearest Neighbors (K-NN) Classification Project in C
 
-# Proyecto de Clasificación K-Nearest Neighbors (K-NN) en C
+## Description
 
-## Descripción
+This project implements the K-Nearest Neighbors (K-NN) classification algorithm using the C programming language. The main objective of this project is to classify flowers from the Iris dataset based on their physical attributes, such as the length and width of sepals and petals. The program splits the dataset into two parts: one for training and the other for testing. Then, it classifies the flowers using the K-NN algorithm and evaluates the accuracy of the predictions.
 
-Este proyecto implementa el algoritmo de clasificación K-Nearest Neighbors (K-NN) utilizando el lenguaje C. El objetivo principal de este proyecto es clasificar flores del conjunto de datos Iris, basado en sus características físicas, como la longitud y el ancho de los sepalos y pétalos. El programa divide el conjunto de datos en dos partes: uno para entrenamiento y otro para prueba (testing), luego clasifica las flores de acuerdo con el algoritmo K-NN y evalúa su precisión.
+## Project Structure
 
-## Estructura del Proyecto
+The program consists of a single C implementation that performs the following tasks:
 
-El programa consta de una sola implementación en C que realiza las siguientes tareas:
+1. **Data File Reading**: Flower data (attributes and classes) are read from a file called `iris.data`.
+2. **K-NN Algorithm Implementation**: The K-NN algorithm is used to classify flowers based on their attributes.
+3. **Accuracy Calculation**: The program calculates the percentage of correct classifications by comparing the predicted class labels with the actual class labels from the testing set.
 
-1. **Lectura del archivo de datos**: Los datos de las flores (atributos y clases) son leídos desde un archivo llamado `iris.data`.
-2. **Implementación del algoritmo K-NN**: El algoritmo K-NN es utilizado para clasificar las flores según sus características.
-3. **Cálculo de la precisión**: Se calcula el porcentaje de clasificación correcta comparando las predicciones del modelo con las clases reales de las flores de prueba.
+### Files
 
-### Archivos
+- `iris.data`: The file containing the Iris dataset. This file should be located in the same directory as the compiled executable.
+- `main.c`: The implementation of the program containing the K-NN algorithm logic.
 
-- `iris.data`: Archivo con los datos del conjunto Iris. Este archivo debe estar en el mismo directorio que el archivo ejecutable.
-- `main.c`: Implementación del programa que contiene la lógica del algoritmo K-NN.
+## Usage
 
-## Uso
+### Requirements
 
-### Requisitos
+- C Compiler (such as `gcc`).
+- `iris.data` file containing the Iris dataset.
 
-- Compilador de C (como `gcc`).
-- Archivo `iris.data` con el conjunto de datos Iris.
+### Instructions
 
-### Instrucciones
-
-1. **Compilar el programa**:
-   Para compilar el código, usa el siguiente comando en el terminal:
+1. **Compile the Program**:
+   To compile the code, use the following command in the terminal:
 
    ```bash
    gcc -o knn_classifier main.c -lm
    ```
 
-   El flag `-lm` es necesario para enlazar la biblioteca matemática, ya que se utiliza la función `sqrt` en el cálculo de distancias.
+   The `-lm` flag is required to link the math library, as the `sqrt` function is used in distance calculations.
 
-2. **Ejecutar el programa**:
-   Una vez compilado, ejecuta el programa con el siguiente comando:
+2. **Run the Program**:
+   Once compiled, run the program with the following command:
 
    ```bash
    ./knn_classifier
    ```
 
-3. **Ingreso de parámetros**:
-   Al ejecutar el programa, se solicitará lo siguiente:
+3. **Input Parameters**:
+   Upon running the program, you will be prompted to enter the following:
    
-   - El valor de `k` (número de vecinos más cercanos a considerar).
-   - El porcentaje de datos a usar para el entrenamiento (porcentaje entre 0 y 100).
+   - The value of `k` (the number of nearest neighbors to consider).
+   - The percentage of data to use for training (between 0 and 100).
    
-   Por ejemplo:
+   For example:
    
    ```
-   Ingrese el valor de k para el algoritmo: 3
-   Ingrese el porcentaje de entrenamiento para el algoritmo (0 a 100): 80
+   Enter the value of k for the algorithm: 3
+   Enter the percentage of training data for the algorithm (0 to 100): 80
    ```
 
-   El programa usará el valor de `k` para el algoritmo K-NN y dividirá los datos en entrenamiento y prueba basado en el porcentaje ingresado.
+   The program will use the specified value of `k` for the K-NN algorithm and divide the dataset into training and testing sets based on the entered percentage.
 
-4. **Resultados**:
-   El programa mostrará el resultado de la clasificacion de cada punto de prueba, indicando si la clasificación fue correcta o incorrecta. Al final, se mostrará el porcentaje de clasificación correcta.
+4. **Results**:
+   The program will display the classification result for each testing point, indicating whether the prediction was correct or incorrect. At the end, it will display the overall accuracy percentage.
 
-### Ejemplo de Salida
+### Example Output
 
 ```
-Ingrese el valor de k para el algoritmo: 3
-Ingrese el porcentaje de entrenamiento para el algoritmo (0 a 100): 80
-testing *1 = Iris-setosa -----> testing 1 = Iris-setosa // Es correcto
-testing *2 = Iris-setosa -----> testing 2 = Iris-setosa // Es correcto
+Enter the value of k for the algorithm: 3
+Enter the percentage of training data for the algorithm (0 to 100): 80
+testing *1 = Iris-setosa -----> testing 1 = Iris-setosa // Correct
+testing *2 = Iris-setosa -----> testing 2 = Iris-setosa // Correct
 ...
-El porcentaje de clasificacion correcta es: 96.00%
+The classification accuracy is: 96.00%
 ```
 
-## Explicación del Código
+## Code Explanation
 
-- **Estructuras de datos**:
-  - `Punto`: Estructura que almacena las características de cada flor, incluyendo su clase.
-  - `DistanciaIndice`: Estructura utilizada para almacenar la distancia de cada punto respecto al punto de prueba y su índice en el conjunto de datos.
+- **Data Structures**:
+  - `Punto`: A structure that stores the attributes of each flower, including its class.
+  - `DistanciaIndice`: A structure used to store the distance of each point from the test point and its index in the dataset.
   
-- **Funciones principales**:
-  - `DistanciaEuclidiana`: Calcula la distancia euclidiana entre dos puntos del espacio (flores).
-  - `KNN`: Realiza la clasificación utilizando el algoritmo K-NN, calculando las distancias entre el punto de prueba y todos los puntos del conjunto de entrenamiento, y luego determinando la clase más frecuente entre los k vecinos más cercanos.
+- **Main Functions**:
+  - `DistanciaEuclidiana`: Computes the Euclidean distance between two points (flowers).
+  - `KNN`: Performs the classification using the K-NN algorithm. It calculates the distances between the test point and all training points, then determines the most frequent class among the k nearest neighbors.
 
-- **Algoritmo de clasificación**:
-  - El conjunto de datos se divide en entrenamiento y prueba, y se aplica el algoritmo K-NN para predecir la clase de cada punto de prueba. Luego, se calcula el porcentaje de clasificaciones correctas.
+- **Classification Algorithm**:
+  - The dataset is split into training and testing sets, and the K-NN algorithm is applied to predict the class of each testing point. The accuracy is then calculated by comparing the predicted classes with the true classes.
 
-## Consideraciones
+## Considerations
 
-- El conjunto de datos utilizado es el famoso conjunto Iris, que contiene 150 puntos de datos con 4 atributos numéricos y una clase para cada muestra (Setosa, Versicolor, Virginica).
-- El valor de `k` debe ser un número impar para evitar empates en la clasificación.
+- The dataset used is the famous Iris dataset, which contains 150 data points with 4 numerical attributes and a class label for each sample (Setosa, Versicolor, Virginica).
+- The value of `k` should be an odd number to avoid ties in classification.
 
-## Conclusión
+## Conclusion
 
-Este proyecto demuestra como implementar el algoritmo K-Nearest Neighbors (K-NN) en C para realizar la clasificacion de datos. Es un ejemplo practico de cómo usar K-NN para tareas de clasificación en aprendizaje automático.
-
+This project demonstrates how to implement the K-Nearest Neighbors (K-NN) algorithm in C for performing data classification tasks. It is a practical example of using K-NN for classification in machine learning.
