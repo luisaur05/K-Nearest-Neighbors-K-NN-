@@ -51,8 +51,8 @@ The program consists of a single C implementation that performs the following ta
    For example:
    
    ```
-   Enter the value of k for the algorithm: 3
-   Enter the percentage of training data for the algorithm (0 to 100): 80
+   Ingrese el valor de k para el algoritmo: 3
+   Ingrese el porcentaje de entrenamiento para el algoritmo (0 a 100): 80
    ```
 
    The program will use the specified value of `k` for the K-NN algorithm and divide the dataset into training and testing sets based on the entered percentage.
@@ -63,12 +63,12 @@ The program consists of a single C implementation that performs the following ta
 ### Example Output
 
 ```
-Enter the value of k for the algorithm: 3
-Enter the percentage of training data for the algorithm (0 to 100): 80
-testing *1 = Iris-setosa -----> testing 1 = Iris-setosa // Correct
-testing *2 = Iris-setosa -----> testing 2 = Iris-setosa // Correct
+Ingrese el valor de k para el algoritmo: 3
+Ingrese el porcentaje de entrenamiento para el algoritmo (0 a 100): 80
+testing *1 = Iris-setosa -----> testing 1 = Iris-setosa // Es correcto
+testing *2 = Iris-setosa -----> testing 2 = Iris-setosa // Es correcto
 ...
-The classification accuracy is: 96.00%
+El porcentaje de clasificacion correcta es: 96.00%
 ```
 
 ## Code Explanation
